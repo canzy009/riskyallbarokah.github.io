@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risky Al Barokah 2 - Service AC, Kulkas & Instalasi Listrik</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in;
+        }
+        
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                bottom: 1080px;
+                transform: translateX(-200px);
+            }
+        }
+        
+        .services {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .safety {
+            padding: 4rem 2rem;
+            background-color: var(--light);
+        }
+        
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .safety-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .safety-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .safety-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .safety-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .safety-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .process {
+            padding: 4rem 2rem;
+        }
+        
+        .process-steps {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 4px;
+            background-color: var(--primary);
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 2rem;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .step-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .testimonials {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #555;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.8rem;
+        }
+        
+        .stars {
+            color: #f1c40f;
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .location {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .map-container {
+            margin-top: 2rem;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--primary);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: pulse 1.5s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="bubbles">
+            <div class="bubble" style="left: 10%; width: 40px; height: 40px; animation-delay: 0s;"></div>
+            <div class="bubble" style="left: 20%; width: 20px; height: 20px; animation-delay: 2s;"></div>
+            <div class="bubble" style="left: 35%; width: 30px; height: 30px; animation-delay: 1s;"></div>
+            <div class="bubble" style="left: 50%; width: 25px; height: 25px; animation-delay: 3s;"></div>
+            <div class="bubble" style="left: 65%; width: 35px; height: 35px; animation-delay: 0.5s;"></div>
+            <div class="bubble" style="left: 80%; width: 15px; height: 15px; animation-delay: 2.5s;"></div>
+            <div class="bubble" style="left: 90%; width: 30px; height: 30px; animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="header-content">
+            <h1>BUTUH JASA SERVICE AC, KULKAS, ATAU INSTALASI LISTRIK?</h1>
+            <p class="tagline">Tenang, Risky Al Barokah 2 siap membantu Anda!</p>
+            <p>Kami melayani service panggilan dengan pengerjaan cepat, rapi, profesional, dan ditangani oleh tenaga ahli berpengalaman di bidangnya.</p>
+            <a href="https://wa.me/6282253714840" class="cta-button">Hubungi Kami Sekarang</a>
+        </div>
+    </header>
+    
+    <section class="services">
+        <h2 class="section-title animate-on-scroll">Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3 class="service-title">Pemasangan AC</h3>
+                <p class="service-desc">Pemasangan AC baru dengan teknik yang tepat untuk kinerja optimal dan hemat energi.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="service-title">Instalasi Listrik</h3>
+                <p class="service-desc">Instalasi listrik rumah/ruangan dengan standar keamanan tinggi dan material berkualitas.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3 class="service-title">Cuci AC</h3>
+                <p class="service-desc">Pembersihan AC menyeluruh untuk mengembalikan performa dan kebersihan udara.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 class="service-title">Service AC Mobil & Rumah</h3>
+                <p class="service-desc">Perbaikan dan perawatan AC untuk mobil dan rumah dengan garansi pengerjaan.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-blender"></i>
+                </div>
+                <h3 class="service-title">Perbaikan Kulkas</h3>
+                <p class="service-desc">Service kulkas tidak dingin, bocor, atau masalah lainnya dengan cepat dan tepat.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3 class="service-title">Service Mesin Cuci</h3>
+                <p class="service-desc">Perbaikan mesin cuci yang bermasalah dengan sparepart asli dan teknisi ahli.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-gas-pump"></i>
+                </div>
+                <h3 class="service-title">Isi Freon AC & Kulkas</h3>
+                <p class="service-desc">Pengisian freon dengan jenis yang sesuai dan takaran yang tepat.</p>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="service-title">Layanan Lainnya</h3>
+                <p class="service-desc">Service elektronik rumah tangga lainnya dengan harga terjangkau dan berkualitas.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="safety">
+        <h2 class="section-title animate-on-scroll">Standar Keselamatan Kerja Kami</h2>
+        <p class="animate-on-scroll">Kami mengutamakan keselamatan dalam setiap pekerjaan untuk melindungi teknisi dan pelanggan</p>
+        
+        <div class="safety-grid">
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3 class="safety-title">APD Lengkap</h3>
+                <p class="safety-desc">Teknisi kami selalu menggunakan Alat Pelindung Diri (APD) lengkap termasuk helm, sarung tangan, dan sepatu safety.</p>
+            </div>
+            
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3 class="safety-title">Prosedur Listrik Aman</h3>
+                <p class="safety-desc">Selalu mematikan sumber listrik sebelum bekerja dan menggunakan alat ukur untuk memastikan tidak ada arus listrik.</p>
+            </div>
+            
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-fire-extinguisher"></i>
+                </div>
+                <h3 class="safety-title">Alat Pemadam Kebakaran</h3>
+                <p class="safety-desc">Membawa APAR (Alat Pemadam Api Ringan) untuk antisipasi keadaan darurat saat bekerja dengan listrik atau bahan mudah terbakar.</p>
+            </div>
+            
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-hand-holding-water"></i>
+                </div>
+                <h3 class="safety-title">Penanganan Freon Aman</h3>
+                <p class="safety-desc">Mengikuti prosedur penanganan freon yang aman untuk mencegah kebocoran dan kontaminasi lingkungan.</p>
+            </div>
+            
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="safety-title">Alat Standar Nasional</h3>
+                <p class="safety-desc">Menggunakan peralatan kerja yang memenuhi standar nasional dan dirawat secara berkala.</p>
+            </div>
+            
+            <div class="safety-card animate-on-scroll">
+                <div class="safety-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="safety-title">Asuransi Teknisi</h3>
+                <p class="safety-desc">Semua teknisi kami dilindungi asuransi kecelakaan kerja untuk memberikan perlindungan maksimal.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process">
+        <h2 class="section-title animate-on-scroll">Proses Pengerjaan Service</h2>
+        <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto;">Berikut adalah tahapan profesional yang kami lakukan dalam setiap pekerjaan service untuk menjamin kualitas hasil kerja</p>
+        
+        <div class="process-steps">
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Pemeriksaan Awal</h3>
+                <p class="step-desc">Teknisi akan melakukan pemeriksaan menyeluruh untuk mendiagnosis masalah pada perangkat Anda.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Penjelasan Masalah & Estimasi Biaya</h3>
+                <p class="step-desc">Setelah masalah teridentifikasi, teknisi akan menjelaskan penyebab kerusakan dan memberikan estimasi biaya perbaikan.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Persetujuan Pelanggan</h3>
+                <p class="step-desc">Pekerjaan hanya akan dilanjutkan setelah mendapatkan persetujuan dari pelanggan.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Proses Perbaikan</h3>
+                <p class="step-desc">Teknisi akan melakukan perbaikan dengan alat dan sparepart yang sesuai standar.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">5</div>
+                <h3 class="step-title">Pengujian Perangkat</h3>
+                <p class="step-desc">Setelah perbaikan, perangkat akan diuji untuk memastikan berfungsi dengan baik.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">6</div>
+                <h3 class="step-title">Pembersihan Area Kerja</h3>
+                <p class="step-desc">Teknisi akan membersihkan area kerja dan membuang semua sampah yang dihasilkan dari proses perbaikan.</p>
+            </div>
+            
+            <div class="process-step animate-on-scroll">
+                <div class="step-number">7</div>
+                <h3 class="step-title">Penyerahan & Garansi</h3>
+                <p class="step-desc">Perangkat diserahkan kepada pelanggan dengan penjelasan penggunaan dan garansi pengerjaan.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <h2 class="section-title animate-on-scroll">Apa Kata Pelanggan Kami?</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Sangat puas dengan service AC dari Risky Al Barokah 2. Teknisinya ramah, cepat, dan harganya terjangkau. AC saya yang sebelumnya tidak dingin sekarang berfungsi seperti baru lagi."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Budi Santoso">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ibu Siti</h4>
+                        <p>Pelanggan AC</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card animate-on-scroll">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Kulkas saya tiba-tiba tidak dingin, langsung hubungi Risky Al Barokah 2. Dalam 2 jam teknisi sudah datang dan memperbaikinya. Sekarang kulkas berfungsi normal lagi. Terima kasih!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmad Fauzi">
+                    </div>
+                    <div class="author-info">
+                        <h4>Pak Ahmad</h4>
+                        <p>Pelanggan Kulkas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card animate-on-scroll">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">"Instalasi listrik di rumah baru saya dikerjakan dengan sangat rapi dan profesional. Harga bersaing dan hasil kerja memuaskan. Sangat direkomendasikan!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dewi Lestari">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ibu Dewi</h4>
+                        <p>Pelanggan Instalasi Listrik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact">
+        <h2 class="section-title animate-on-scroll">Hubungi Kami</h2>
+        <p class="animate-on-scroll">Jangan tunggu sampai kerusakan bertambah parah. Segera percayakan kebutuhan service Anda kepada kami!</p>
+        
+        <div class="contact-info">
+            <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                    <a href="tel:+6282253714840" style="color: white; text-decoration: none;">+62 822-5371-4840</a> (Telp/WA)
+                </div>
+            </div>
+            
+            <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>Sumber Bangun RT 02, Jalan KKN / TK Al Amin</div>
+            </div>
+            
+            <div class="contact-item animate-on-scroll">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div>Buka Setiap Hari: 08.00 - 17.00 WIB</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="location">
+        <h2 class="section-title animate-on-scroll">Lokasi Kami</h2>
+        <div class="map-container animate-on-scroll">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.800281223647!2d107.61829031431737!3d-6.917720769439335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e64a3e5c3b3d%3A0x1e0b5b5b5b5b5b5b!2sSumber%20Bangun%20RT%2002%2C%20Jalan%20KKN%20%2F%20TK%20Al%20Amin!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <h3>Risky Al Barokah 2</h3>
+        <p>Solusi Tepat Untuk Kenyamanan Anda!</p>
+        
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6282253714840" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <p>&copy; 2023 Risky Al Barokah 2. All Rights Reserved.</p>
+    </footer>
+    
+    <a href="https://wa.me/6282253714840" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        // Animasi saat scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Animasi bubble
+        function createBubbles() {
+            const bubblesContainer = document.querySelector('.bubbles');
+            const bubbleCount = 15;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 30 + 10;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${left}%`;
+                bubble.style.animationDelay = `${delay}s`;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                bubblesContainer.appendChild(bubble);
+            }
+        }
+        
+        window.addEventListener('load', createBubbles);
+    </script>
+</body>
+</html>
